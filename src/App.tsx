@@ -76,7 +76,7 @@ export default function App() {
     try {
       const res = await fetch(`${API_URL}?action=getCommissions`, {
         method: 'GET',
-        redirect: 'follow' // <-- Ditambahkan agar fetch tidak failed di Vercel
+        redirect: 'follow'
       });
       if (!res.ok) throw new Error('Failed to fetch data');
       const data = await res.json();
@@ -95,7 +95,7 @@ export default function App() {
     try {
       const res = await fetch(`${API_URL}?action=getSettings`, {
         method: 'GET',
-        redirect: 'follow' // <-- Ditambahkan agar fetch tidak failed di Vercel
+        redirect: 'follow'
       });
       if (!res.ok) return;
       const data = await res.json();
@@ -140,7 +140,7 @@ export default function App() {
     try {
       const res = await fetch(API_URL, {
         method: 'POST',
-        redirect: 'follow', // <-- Ditambahkan untuk penanganan POST redirect Google Script
+        redirect: 'follow',
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error('Submit failed');
@@ -174,7 +174,7 @@ export default function App() {
     try {
       const res = await fetch(API_URL, {
         method: 'POST',
-        redirect: 'follow', // <-- Ditambahkan
+        redirect: 'follow',
         body: JSON.stringify(payload)
       });
       if (!res.ok) throw new Error('Update failed');
@@ -198,7 +198,7 @@ export default function App() {
     try {
       const res = await fetch(API_URL, {
         method: 'POST',
-        redirect: 'follow', // <-- Ditambahkan
+        redirect: 'follow',
         body: JSON.stringify(payload)
       });
       if (!res.ok) throw new Error('Delete failed');
@@ -224,7 +224,7 @@ export default function App() {
     try {
       const res = await fetch(API_URL, {
         method: 'POST',
-        redirect: 'follow', // <-- Ditambahkan
+        redirect: 'follow',
         body: JSON.stringify(payload)
       });
       if (!res.ok) throw new Error('Save failed');
@@ -310,7 +310,7 @@ export default function App() {
         {/* Global Error Banner */}
         {apiError && (
           <div className="max-w-md mx-auto mt-4 p-2.5 bg-red-500/8 border border-red-500/15 text-red-400 rounded-xl text-xs flex items-center justify-center gap-2">
-            <ShieldAlert className="w-3.5 h-3.5" />
+            <Lock className="w-3.5 h-3.5 text-red-400" />
             <span>{apiError}</span>
             <button onClick={fetchCommissions} className="underline hover:text-red-300 ml-1">Retry</button>
           </div>
